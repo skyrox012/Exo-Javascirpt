@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Background Color</title>
+  </head>
+
+  <style>
+    body {
+      background-color: #ed8b7e;
+    }
+  </style>
+
+  <body>
+    <h1>Changement de fond</h1>
+    <button id="mon-bouton">Changer la couleur de fond</button>
+
+    <script>
+      const btn = document.querySelector("#mon-bouton");
+
+      let isBlue = true;
+
+      console.log(btn);
+
+      btn.addEventListener("click", function () {
+        if (isBlue){
+        document.body.style.backgroundColor = "#ed8b7e";
+        }else{
+        document.body.style.backgroundColor = "#7ec4ed";
+        }
+        isBlue = !isBlue;
+      });
+    </script>
+  </body>
+</html>

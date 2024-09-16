@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minuterie</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        input[type="number"] {
+            font-size: 16px;
+            width: 100px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Champ de saisie pour entrer la durée en secondes -->
+    <label for="duree">Durée (en secondes) :</label>
+    <input type="number" id="duree" min="1" value="10">
+
+    <!-- Boutons pour démarrer et arrêter la minuterie -->
+    <button id="demarrer">Démarrer</button>
+    <button id="arreter">Arrêter</button>
+
+    <!-- Affichage de la minuterie -->
+    <p id="minuterie">00:00</p>
+
+    <script>
+        // Variable pour stocker le temps restant
+        let tempsRestant = 0;
+
+        // Variable pour stocker l'intervalle de la minuterie
+        let intervalle;
+
+        // Sélection des éléments HTML
+        const affichageMinuterie = document.getElementById('minuterie');
+        const champDuree = document.getElementById('duree');
+        const boutonDemarrer = document.getElementById('demarrer');
+        const boutonArreter = document.getElementById('arreter');
+
+        // Fonction pour mettre à jour l'affichage de la minuterie
+        function mettreAJourAffichage() {
+            // Calcul des minutes et secondes restantes
+            const minutes = Math.floor(tempsRestant / 60);
+            const secondes = tempsRestant % 60;
+
+            // Formatage pour afficher sous forme de MM:SS
+            affichageMinuterie.textContent =
+                `${minutes.toString().padStart(2, '0')}:${secondes.toString().padStart(2, '0')}`;
+        }
+
+        // Fonction pour démarrer la minuterie
+        function demarrerMinuterie() {
+            // Récupération de la durée depuis le champ de saisie
+            tempsRestant = parseInt(champDuree.value, 10);
+
+            // Mise à jour initiale de l'affichage
+            mettreAJourAffichage();
+
+            // Nettoyage de l'intervalle précédent, s'il existe
+            if (intervalle) {
+                clearInterval(intervalle);
+            }
+
+            // Création d'un nouvel intervalle pour la minuterie
+            intervalle = setInterval(() => {
+                // Décrémenter le temps restant
+                tempsRestant--;
+
+                // Mettre à jour l'affichage
+                mettreAJourAffichage();
+
+                // Arrêter la minuterie si le temps est écoulé
+                if (tempsRestant <= 0) {
+                    clearInterval(intervalle);
+                }
+            }, 1000); // Mise à jour toutes les secondes
+        }
+
+        // Fonction pour arrêter la minuterie
+        function arreterMinuterie() {
+            clearInterval(intervalle);
+        }
+
+        // Ajout des écouteurs d'événements pour les boutons
+        boutonDemarrer.addEventListener('click', demarrerMinuterie);
+        boutonArreter.addEventListener('click', arreterMinuterie);
+    </script>
+
+</body>
+
+</html>

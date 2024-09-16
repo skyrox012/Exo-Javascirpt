@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			Compteur de clics	
+		</title>	
+	
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+	</head>
+	<style>
+		p{
+			font-family: "Roboto", sans-serif;
+            font-size: 30px;
+		}
+
+        #compteur{
+
+            color:#e52121;
+
+        }
+
+        button{
+
+            font-size: 20px ;
+            background-color: rgb(247, 94, 137);
+            color:aliceblue;
+            border-radius:20px;
+            border:none;
+            padding:10px;
+
+        }
+
+        button:hover{
+
+            background-color: rgb(213, 60, 80);
+
+        }
+		
+	</style>
+	
+	<body>
+	
+		         
+            <p>Nombre de clics : <span id="compteur">0</span></p>
+            
+           
+            <button id="boutonClic">Cliquez ici</button>
+            
+            <script>
+                
+                let compteur = 0;
+
+                const affichageCompteur = document.getElementById('compteur');
+
+                const bouton = document.getElementById('boutonClic');
+
+                bouton.addEventListener("click", function () {
+                   
+                    compteur++;
+
+                    affichageCompteur.textContent = compteur;
+                });
+
+            </script>
+
+
+		
+	</body>
+</html>
