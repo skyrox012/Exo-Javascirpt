@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dropdown</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
+
+        body {
+            font-family: "Roboto", sans-serif;
+        }
+
+        /* Style pour le bouton du menu déroulant */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Bouton du menu */
+        .dropbtn {
+            background-color: #ff7741;
+            /* Couleur du bouton */
+            color: white;
+            padding: 16px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Contenu du menu déroulant (caché par défaut) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffccb6;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Liens dans le menu déroulant */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        /* Couleur de fond au survol d'un lien */
+        .dropdown-content a:hover {
+            background-color: #ff7741;
+            color: #ffffff;
+        }
+
+        /* Afficher le contenu du menu lorsque la classe "show" est ajoutée */
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Menu Dropdown</h2>
+
+    <!-- Conteneur du menu dropdown -->
+    <div class="dropdown">
+        <button onclick="toggleDropdown()" class="dropbtn">¯\_(ツ)_/¯</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="#">Lien 1</a>
+            <a href="#">Lien 2</a>
+            <a href="#">Lien 3</a>
+        </div>
+    </div>
+
+    
+
+    <script>
+        // Fonction pour afficher ou masquer le contenu du menu déroulant
+        function toggleDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Ferme le menu si l'utilisateur clique en dehors
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

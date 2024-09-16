@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tabs</title>
+    <style>
+      .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+      }
+
+      .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+      }
+
+      .tab button:hover {
+        background-color: #ddd;
+      }
+
+      .tab button.active {
+        background-color: #ccc;
+      }
+
+      .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+      }
+
+     
+    </style>
+  </head>
+
+  <body>
+    <h1>Tabs</h1>
+      <div class="tab">
+      <button id="b1">London</button>
+      <button id="b2">Paris</button>
+      <button id="b3">Tokyo</button>
+    </div>
+
+    
+    <div id="tab1" class="tabcontent">
+      <h3>London</h3>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="tab2" class="tabcontent">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="tab3" class="tabcontent">
+      <h3>Tokyo</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+  </body>
+
+
+
+
+  <script>
+    
+	
+	document.getElementById("b1").addEventListener("click",function(){
+		document.getElementById("tab1").style.display="block";
+		document.getElementById("b1").style.backgroundColor="salmon";
+		
+		document.getElementById("tab2").style.display="none";
+		document.getElementById("b2").style.backgroundColor="#f1f1f1";
+		
+		document.getElementById("tab3").style.display="none";
+		document.getElementById("b3").style.backgroundColor="#f1f1f1";
+	});
+	
+	document.getElementById("b2").addEventListener("click",function(){
+		document.getElementById("tab2").style.display="block";
+		document.getElementById("b2").style.backgroundColor="salmon";
+		
+		document.getElementById("tab1").style.display="none";
+		document.getElementById("b1").style.backgroundColor="#f1f1f1";
+		
+		document.getElementById("tab3").style.display="none";
+		document.getElementById("b3").style.backgroundColor="#f1f1f1";
+		
+	});
+	
+		document.getElementById("b3").addEventListener("click",function(){
+		document.getElementById("tab3").style.display="block";
+		document.getElementById("b3").style.backgroundColor="salmon";
+		
+		document.getElementById("tab1").style.display="none";
+		document.getElementById("b1").style.backgroundColor="#f1f1f1";
+		
+		document.getElementById("tab2").style.display="none";
+		document.getElementById("b2").style.backgroundColor="#f1f1f1";
+		
+	});
+  
+  </script>
+</html>
