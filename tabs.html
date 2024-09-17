@@ -4,6 +4,12 @@
     <meta charset="utf-8" />
     <title>Tabs</title>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
+
+      body {
+          font-family: "Roboto", sans-serif;
+      }
+
       .tab {
         overflow: hidden;
         border: 1px solid #ccc;
@@ -70,40 +76,45 @@
   <script>
     
 	
-	document.getElementById("b1").addEventListener("click",function(){
-		document.getElementById("tab1").style.display="block";
-		document.getElementById("b1").style.backgroundColor="salmon";
-		
-		document.getElementById("tab2").style.display="none";
-		document.getElementById("b2").style.backgroundColor="#f1f1f1";
-		
-		document.getElementById("tab3").style.display="none";
-		document.getElementById("b3").style.backgroundColor="#f1f1f1";
-	});
-	
-	document.getElementById("b2").addEventListener("click",function(){
-		document.getElementById("tab2").style.display="block";
-		document.getElementById("b2").style.backgroundColor="salmon";
-		
-		document.getElementById("tab1").style.display="none";
-		document.getElementById("b1").style.backgroundColor="#f1f1f1";
-		
-		document.getElementById("tab3").style.display="none";
-		document.getElementById("b3").style.backgroundColor="#f1f1f1";
-		
-	});
-	
-		document.getElementById("b3").addEventListener("click",function(){
-		document.getElementById("tab3").style.display="block";
-		document.getElementById("b3").style.backgroundColor="salmon";
-		
-		document.getElementById("tab1").style.display="none";
-		document.getElementById("b1").style.backgroundColor="#f1f1f1";
-		
-		document.getElementById("tab2").style.display="none";
-		document.getElementById("b2").style.backgroundColor="#f1f1f1";
-		
-	});
+	// Afficher le premier onglet au chargement de la page
+    window.onload = function () {
+      document.getElementById("tab1").style.display = "block"; // Afficher le contenu du premier onglet
+      document.getElementById("b1").style.backgroundColor = "salmon"; // Colorier le bouton actif
+    };
+
+    document.getElementById("b1").addEventListener("click", function () {
+      document.getElementById("tab1").style.display = "block";
+      document.getElementById("b1").style.backgroundColor = "salmon";
+
+      document.getElementById("tab2").style.display = "none";
+      document.getElementById("b2").style.backgroundColor = "#f1f1f1";
+
+      document.getElementById("tab3").style.display = "none";
+      document.getElementById("b3").style.backgroundColor = "#f1f1f1";
+    });
+
+    document.getElementById("b2").addEventListener("click", function () {
+      document.getElementById("tab2").style.display = "block";
+      document.getElementById("b2").style.backgroundColor = "salmon";
+
+      document.getElementById("tab1").style.display = "none";
+      document.getElementById("b1").style.backgroundColor = "#f1f1f1";
+
+      document.getElementById("tab3").style.display = "none";
+      document.getElementById("b3").style.backgroundColor = "#f1f1f1";
+    });
+
+    document.getElementById("b3").addEventListener("click", function () {
+      document.getElementById("tab3").style.display = "block";
+      document.getElementById("b3").style.backgroundColor = "salmon";
+
+      document.getElementById("tab1").style.display = "none";
+      document.getElementById("b1").style.backgroundColor = "#f1f1f1";
+
+      document.getElementById("tab2").style.display = "none";
+      document.getElementById("b2").style.backgroundColor = "#f1f1f1";
+    });
+
   
   </script>
 </html>

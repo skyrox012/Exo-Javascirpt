@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Accordéon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
+
+        body {
+            font-family: "Roboto", sans-serif;
+        }
+
+        .accordeon {
+            background-color: #c0e1ff;
+            
+            color: #232323;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border:none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .active,
+        .accordeon:hover {
+            background-color: #6bb7e9;
+            
+        }
+
+        .contenu {
+            padding: 0 18px;
+            display: none;
+            background-color: white;
+            overflow: hidden;
+            border: 1px, solid rgb(43, 43, 43);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Accordéon</h2>
+
+    <button class="accordeon">Section 1</button>
+    <div class="contenu">
+        <img src="img/74607193_p0_master1200.jpg" alt="the gang 1" width="500px">
+
+    </div>
+
+    <button class="accordeon">Section 2</button>
+    <div class="contenu">
+        <img src="img/74607193_p12_master1200.jpg" alt="the gang 2" width="500px">
+    </div>
+
+    <button class="accordeon">Section 3</button>
+    <div class="contenu">
+        <img src="img/76492786_p3_master1200.jpg" alt="the gang 3" width="500px">
+    </div>
+
+    <script>
+        const acc = document.getElementsByClassName("accordeon");
+        let i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                const contenu = this.nextElementSibling;
+                if (contenu.style.display === "block") {
+                    contenu.style.display = "none";
+                } else {
+                    contenu.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
