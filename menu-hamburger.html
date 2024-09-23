@@ -4,12 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Accordéon</title>
+    <title>Menu hamburger</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap');
 
         body {
             font-family: "Roboto", sans-serif;
+            min-height: 100dvi;
         }
 
         .mobile-container {
@@ -21,13 +22,14 @@
 
         .nav {
             overflow: hidden;
-            background-color: #b1ffed88;
+            background-color: #5ce2ce6b;
             position: relative;
             border-radius: 15px;
         }
 
         .nav #liens {
             display: none;
+            
         }
 
         .nav a {
@@ -36,19 +38,19 @@
             text-decoration: none;
             font-size: 17px;
             display: block;
+            
         }
 
         .nav a.icon {
-            
             color: black;
             display: block;
             position: absolute;
             right: 0;
             top: 0;
+            
         }
 
         .nav a:hover {
-            
             color: rgb(230, 55, 145);
         }
 
@@ -60,12 +62,16 @@
         @media only screen and (min-width: 800px) {
             .nav {
                 display: flex;
-                justify-content: space-between;
+                justify-content: left;
                 align-items: center;
+                
             }
 
             .nav #liens {
                 display: flex;
+                position: absolute;
+            right: 0;
+            top: 0;
             }
 
             .nav a {
@@ -97,51 +103,51 @@
 
 <body>
 
-    <!-- Simulate a smartphone / tablet -->
+    
     <div class="mobile-container">
 
-        <!-- Top Navigation Menu -->
-        <div class="nav">
-            <a href="#home" class="active">:D</a>
+        
+        <nav class="nav">
+            <a href="#" class="active">:D</a>
             <div id="liens">
-                <a href="#lien1">lien 1</a>
-                <a href="#lien2">lien 2</a>
-                <a href="#lien3">lien 3</a>
+                <a href="#">lien 1</a>
+                <a href="#">lien 2</a>
+                <a href="#">lien 3</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
                 <i class="fa fa-times"></i>
             </a>
-        </div>
+        </nav>
 
-        <div style="padding-left:16px">
+        <div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod laborum corrupti aliquam nam blanditiis
                 numquam nostrum, ipsa harum molestiae est iste! Ipsam reprehenderit dolorem nesciunt deleniti qui vitae
                 libero. Dolorum?</p>
         </div>
 
-        <!-- End smartphone / tablet look -->
+        
     </div>
 
     <script>
         function myFunction() {
-            var x = document.getElementById("liens");
-            var icon = document.querySelector(".nav a.icon");
-            if (x.style.display === "block") {
-                x.style.display = "none";
+            const i = document.getElementById("liens");
+            const icon = document.querySelector(".nav a.icon");
+            if (i.style.display === "block") {
+                i.style.display = "none";
                 icon.classList.remove("open");
             } else {
-                x.style.display = "block";
+                i.style.display = "block";
                 icon.classList.add("open");
             }
         }
 
         function checkScreenSize() {
-            var x = document.getElementById("liens");
+            const i = document.getElementById("liens");
             if (window.innerWidth >= 800) {
-                x.style.display = "flex";
+                i.style.display = "flex";
             } else {
-                x.style.display = "none";
+                i.style.display = "none";
             }
         }
 
